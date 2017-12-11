@@ -4,7 +4,7 @@ import com.jianke.biglog.model.LogRecord;
 
 public class AccessLogParser {
     public static LogRecord parse(String line) {
-        String[] data = line.split("$$$");
+        String[] data = line.split("&&&");
         if (data.length > 0) {
             LogRecord logRecord = new LogRecord();
             logRecord.setAccountId(data[0]);

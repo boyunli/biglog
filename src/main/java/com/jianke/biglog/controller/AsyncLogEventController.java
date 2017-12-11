@@ -21,7 +21,7 @@ public class AsyncLogEventController {
     public ResponseEntity listAllLogRecord(@RequestParam("accountId") String accountId,
                                            @RequestParam("eventId") String eventId,
                                            @RequestParam("eventTime") String eventTime) {
-        final String DELIMITER = "$$$";
+        final String DELIMITER = "&&&";
         String logRecord = accountId + DELIMITER + eventId + DELIMITER + eventTime;
         logger.info("logRecord: " + logRecord);
         FlumeRpcClientFacade flumeClient = new FlumeRpcClientFacade();
