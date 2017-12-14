@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 @RestController
 @RequestMapping("/")
@@ -22,8 +25,13 @@ public class AsyncLogEventController {
                                            @RequestParam("eventId") String eventId,
                                            @RequestParam("eventTime") String eventTime) {
         final String DELIMITER = "&&&";
-        String logRecord = accountId + DELIMITER + eventId + DELIMITER + eventTime;
+        Date now = new Date();
+        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String humanTime = dt.format(now);
+
+        String logRecord = accountId + DELIMITER + eventId + DELIMITER + eventTime + DELIMITER + humanTime;
         logger.info("logRecord: " + logRecord);
+
         FlumeRpcClientFacade flumeClient = new FlumeRpcClientFacade();
         flumeClient.init("172.21.57.149", 41414);
         flumeClient.sendDataToFlume(logRecord);

@@ -7,10 +7,12 @@ public class LogRecord {
     private String accountId;
     private String eventId;
     private String eventTime;
+    private String humanTime;
 
     @Override
     public String toString() {
-        return "LogRecord{ uuid: " + accountId + ", eventId: " + eventId + ", eventTime: " + eventTime ;
+        return "LogRecord{ uuid: " + accountId + ", eventId: "
+                + eventId + ", eventTime: " + eventTime  + ", humanTime: " + humanTime;
     }
 
     public String getAccountId() {
@@ -35,5 +37,13 @@ public class LogRecord {
 
     public void setEventTime(String eventTime) {
         this.eventTime = eventTime;
+    }
+
+    public String getHumanTime() {
+        return humanTime;
+    }
+
+    public void setHumanTime(String humanTime) {
+        this.humanTime = humanTime;
     }
 }

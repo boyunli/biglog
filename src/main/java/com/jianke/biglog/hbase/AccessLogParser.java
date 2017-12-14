@@ -10,6 +10,7 @@ public class AccessLogParser {
             logRecord.setAccountId(data[0]);
             logRecord.setEventId(data[1]);
             logRecord.setEventTime(data[2]);
+            logRecord.setHumanTime(data[3]);
             return logRecord;
         }
         return  null;

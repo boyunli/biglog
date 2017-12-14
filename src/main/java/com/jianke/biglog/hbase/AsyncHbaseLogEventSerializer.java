@@ -29,11 +29,11 @@ public class AsyncHbaseLogEventSerializer  implements HbaseEventSerializer {
     @SuppressWarnings("deprecation")
     @Override
     public List<Row> getActions() {
-        // Split the event body and get the values for the columns
+
         String eventStr = new String(currentEvent.getBody());
         System.out.println("*****event:" + eventStr);
         LogRecord cols = AccessLogParser.parse(eventStr);
-        String req_ts_str = cols.getEventTime();
+        String req_ts_str = cols.getHumanTime();
         Long currTime = System.currentTimeMillis();
         if(req_ts_str != null && !req_ts_str.equals("")) {
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -43,13 +43,14 @@ public class AsyncHbaseLogEventSerializer  implements HbaseEventSerializer {
                 System.out.println("parse req time error,using system.current time.");
             }
         }
+
         // 设置行键
         long revTs = Long.MAX_VALUE - currTime;
         byte[] currentRowKey = (UuidGenerator.getUUID() + Long.toString(revTs)).getBytes();
         List<Row> puts = new ArrayList<Row>();
         Put putReq = new Put(currentRowKey);
 
-        //增加列
+        //增加列 add(byte[] family, byte[] qualifier, byte[] value)
         putReq.add(colFam, "accountId".getBytes(), Bytes.toBytes(cols.getAccountId()));
         putReq.add(colFam, "eventTime".getBytes(), Bytes.toBytes(cols.getEventTime()));
         putReq.add(colFam, "eventId".getBytes(), Bytes.toBytes(cols.getEventId()));
