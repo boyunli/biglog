@@ -1,46 +1,36 @@
 package com.jianke.biglog.controller;
 
-import com.jianke.biglog.service.FlumeRpcClientFacade;
+import com.jianke.biglog.service.AsyncLogService;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("/")
 public class AsyncLogEventController {
-    public static final Logger logger = LoggerFactory.getLogger(AsyncLogEventController.class);
 
     @Autowired
-    private FlumeRpcClientFacade flumeClient;
+    private AsyncLogService asyncLogService;
 
     @RequestMapping(value = "/record/", method = RequestMethod.GET)
-    public ResponseEntity listAllLogRecord(@RequestParam("accountId") String accountId,
-                                           @RequestParam("eventId") String eventId,
-                                           @RequestParam("eventTime") String eventTime) {
-        final String DELIMITER = "&&&";
-        Date now = new Date();
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String humanTime = dt.format(now);
-
-        String logRecord = accountId + DELIMITER + eventId + DELIMITER + eventTime + DELIMITER + humanTime;
-        logger.info("logRecord: " + logRecord);
-
-//        flumeClient.init("172.21.57.149", 41414);
-        flumeClient.init();
-        flumeClient.sendDataToFlume(logRecord);
-        flumeClient.cleanUp();
+    @ResponseBody
+    public ResponseEntity listAllLogRecord(@RequestParam("d") String d,
+                                           @RequestParam("e") String e,
+                                           @RequestParam("uid") String uid,
+                                           @RequestParam("u") String u,
+                                           @RequestParam("r") String r,
+                                           @RequestParam("et") String et,
+                                           @RequestParam("si") String si,
+                                           @RequestParam("s") String s,
+                                           @RequestParam("f") String f,
+                                           HttpServletResponse rsp) {
+        rsp.addHeader("Content-Type", "image/png");
+        asyncLogService.asyncLog(d, e, uid, u, r, et, si, s, f);
+        System.out.println("请求完成！");
         return new ResponseEntity(HttpStatus.OK);
     }
-
 }

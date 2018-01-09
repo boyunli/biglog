@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import com.jianke.biglog.model.LogRecord;
 import org.apache.flume.Context;

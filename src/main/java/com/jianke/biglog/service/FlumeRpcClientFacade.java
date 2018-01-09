@@ -10,22 +10,14 @@ import org.apache.flume.api.RpcClientFactory;
 import org.apache.flume.event.EventBuilder;
 import org.springframework.stereotype.Service;
 
-@Service
 public class FlumeRpcClientFacade {
     private RpcClient client;
-//    private String hostname;
-//    private Integer port;
     private Properties props;
     private static String host1 = "172.21.57.149:41414";
     private static String host2 = "172.21.57.148:41414";
     private static String host3 = "172.21.57.147:41414";
 
-
-//    public void init(String hostname, Integer port) {
     public void init() {
-//        this.hostname = hostname;
-//        this.port = port;
-//        this.client = RpcClientFactory.getDefaultInstance(hostname, port);
         this.props = new Properties();
         this.props.put("client.type", "default_loadbalance");
         this.props.put("hosts", "h1 h2 h3");
@@ -45,7 +37,6 @@ public class FlumeRpcClientFacade {
         } catch (EventDeliveryException e) {
             client.close();
             client = null;
-//            client = RpcClientFactory.getDefaultInstance(hostname, port);
             client = RpcClientFactory.getInstance(this.props);
         }
     }
