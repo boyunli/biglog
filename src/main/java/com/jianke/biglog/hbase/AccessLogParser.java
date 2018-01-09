@@ -7,9 +7,15 @@ public class AccessLogParser {
         String[] data = line.split("&&&");
         if (data.length > 0) {
             LogRecord logRecord = new LogRecord();
-            logRecord.setAccountId(data[0]);
-            logRecord.setEventId(data[1]);
-            logRecord.setEventTime(data[2]);
+            logRecord.setD(data[0]);
+            logRecord.setE(data[1]);
+            logRecord.setUid(data[2]);
+            logRecord.setU(data[2]);
+            logRecord.setR(data[2]);
+            logRecord.setEt(data[2]);
+            logRecord.setSi(data[2]);
+            logRecord.setS(data[2]);
+            logRecord.setF(data[2]);
             logRecord.setHumanTime(data[3]);
             return logRecord;
         }

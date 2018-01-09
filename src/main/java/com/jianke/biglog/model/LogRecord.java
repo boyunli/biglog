@@ -4,39 +4,103 @@ public class LogRecord {
     /**
      * 日志数据格式
      */
-    private String accountId;
-    private String eventId;
-    private String eventTime;
+    private String d;
+    private String e;
+    private String uid;
+    private String u;
+    private String r;
+    private String et;
+    private String si;
+    private String s;
+    private String f;
     private String humanTime;
 
     @Override
     public String toString() {
-        return "LogRecord{ uuid: " + accountId + ", eventId: "
-                + eventId + ", eventTime: " + eventTime  + ", humanTime: " + humanTime;
+        return "LogRecord{" +
+                "d='" + d + '\'' +
+                ", e='" + e + '\'' +
+                ", uid='" + uid + '\'' +
+                ", u='" + u + '\'' +
+                ", r='" + r + '\'' +
+                ", et='" + et + '\'' +
+                ", si='" + si + '\'' +
+                ", s='" + s + '\'' +
+                ", f='" + f + '\'' +
+                ", humanTime='" + humanTime + '\'' +
+                '}';
     }
 
-    public String getAccountId() {
-        return accountId;
+    public String getD() {
+        return d;
     }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
+    public void setD(String d) {
+        this.d = d;
     }
 
-    public String getEventId() {
-        return eventId;
+    public String getE() {
+        return e;
     }
 
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
+    public void setE(String e) {
+        this.e = e;
     }
 
-    public String getEventTime() {
-        return eventTime;
+    public String getUid() {
+        return uid;
     }
 
-    public void setEventTime(String eventTime) {
-        this.eventTime = eventTime;
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getU() {
+        return u;
+    }
+
+    public void setU(String u) {
+        this.u = u;
+    }
+
+    public String getR() {
+        return r;
+    }
+
+    public void setR(String r) {
+        this.r = r;
+    }
+
+    public String getEt() {
+        return et;
+    }
+
+    public void setEt(String et) {
+        this.et = et;
+    }
+
+    public String getSi() {
+        return si;
+    }
+
+    public void setSi(String si) {
+        this.si = si;
+    }
+
+    public String getS() {
+        return s;
+    }
+
+    public void setS(String s) {
+        this.s = s;
+    }
+
+    public String getF() {
+        return f;
+    }
+
+    public void setF(String f) {
+        this.f = f;
     }
 
     public String getHumanTime() {

@@ -51,9 +51,15 @@ public class AsyncHbaseLogEventSerializer  implements HbaseEventSerializer {
         Put putReq = new Put(currentRowKey);
 
         //增加列 add(byte[] family, byte[] qualifier, byte[] value)
-        putReq.add(colFam, "accountId".getBytes(), Bytes.toBytes(cols.getAccountId()));
-        putReq.add(colFam, "eventTime".getBytes(), Bytes.toBytes(cols.getEventTime()));
-        putReq.add(colFam, "eventId".getBytes(), Bytes.toBytes(cols.getEventId()));
+        putReq.add(colFam, "d".getBytes(), Bytes.toBytes(cols.getD()));
+        putReq.add(colFam, "e".getBytes(), Bytes.toBytes(cols.getE()));
+        putReq.add(colFam, "uid".getBytes(), Bytes.toBytes(cols.getUid()));
+        putReq.add(colFam, "u".getBytes(), Bytes.toBytes(cols.getU()));
+        putReq.add(colFam, "r".getBytes(), Bytes.toBytes(cols.getR()));
+        putReq.add(colFam, "et".getBytes(), Bytes.toBytes(cols.getEt()));
+        putReq.add(colFam, "si".getBytes(), Bytes.toBytes(cols.getSi()));
+        putReq.add(colFam, "s".getBytes(), Bytes.toBytes(cols.getS()));
+        putReq.add(colFam, "f".getBytes(), Bytes.toBytes(cols.getF()));
         puts.add(putReq);
         return puts;
     }
