@@ -1,6 +1,8 @@
 package com.jianke.biglog.model;
 
-public class LogRecord {
+import java.io.Serializable;
+
+public class LogRecord implements Serializable{
     /**
      * 日志数据格式
      */

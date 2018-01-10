@@ -1,4 +1,4 @@
-package com.jianke.biglog.service;
+package com.jianke.biglog.flume;
 
 import java.nio.charset.Charset;
 import java.util.Properties;

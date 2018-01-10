@@ -1,5 +1,6 @@
 package com.jianke.biglog.service;
 
+import com.jianke.biglog.flume.FlumeRpcClientFacade;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;
@@ -9,8 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Service
-public class AsyncLogService {
-    public static final Logger logger = LoggerFactory.getLogger(AsyncLogService.class);
+public class AsyncFlumeSourceService {
+    public static final Logger logger = LoggerFactory.getLogger(AsyncFlumeSourceService.class);
 
     @Async
     public void asyncLog(String d, String e, String uid,

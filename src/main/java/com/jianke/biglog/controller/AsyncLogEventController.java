@@ -1,6 +1,6 @@
 package com.jianke.biglog.controller;
 
-import com.jianke.biglog.service.AsyncLogService;
+import com.jianke.biglog.service.AsyncFlumeSourceService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AsyncLogEventController {
 
     @Autowired
-    private AsyncLogService asyncLogService;
+    private AsyncFlumeSourceService asyncFlumeSourceService;
 
     @RequestMapping(value = "/record/", method = RequestMethod.GET)
     @ResponseBody
@@ -29,7 +29,7 @@ public class AsyncLogEventController {
                                            @RequestParam("f") String f,
                                            HttpServletResponse rsp) {
         rsp.addHeader("Content-Type", "image/png");
-        asyncLogService.asyncLog(d, e, uid, u, r, et, si, s, f);
+        asyncFlumeSourceService.asyncLog(d, e, uid, u, r, et, si, s, f);
         System.out.println("请求完成！");
         return new ResponseEntity(HttpStatus.OK);
     }
