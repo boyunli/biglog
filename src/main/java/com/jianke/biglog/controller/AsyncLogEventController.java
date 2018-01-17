@@ -18,19 +18,19 @@ public class AsyncLogEventController {
 
     @RequestMapping(value = "/record/", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity listAllLogRecord(@RequestParam("d") String d,
-                                           @RequestParam("e") String e,
-                                           @RequestParam("uid") String uid,
-                                           @RequestParam("u") String u,
-                                           @RequestParam("r") String r,
-                                           @RequestParam("et") String et,
-                                           @RequestParam("si") String si,
-                                           @RequestParam("s") String s,
-                                           @RequestParam("f") String f,
+    public ResponseEntity listAllLogRecord(@RequestParam(value = "d", required = false) String d,
+                                           @RequestParam(value = "e", required = false) String e,
+                                           @RequestParam(value = "uid", required = false) String uid,
+                                           @RequestParam(value = "u", required = false) String u,
+                                           @RequestParam(value = "r", required = false) String r,
+                                           @RequestParam(value = "et", required = false) String et,
+                                           @RequestParam(value = "si", required = false) String si,
+                                           @RequestParam(value = "s", required = false) String s,
+                                           @RequestParam(value = "f", required = false) String f,
+                                           @RequestParam(value = "p", required = false) String p,
                                            HttpServletResponse rsp) {
         rsp.addHeader("Content-Type", "image/png");
-        asyncFlumeSourceService.asyncLog(d, e, uid, u, r, et, si, s, f);
-        System.out.println("请求完成！");
+        asyncFlumeSourceService.asyncLog(d, e, uid, u, r, et, si, s, f, p);
         return new ResponseEntity(HttpStatus.OK);
     }
 }

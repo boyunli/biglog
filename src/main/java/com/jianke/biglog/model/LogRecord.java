@@ -15,11 +15,13 @@ public class LogRecord implements Serializable{
     private String si;
     private String s;
     private String f;
+    private String p;
     private String humanTime;
 
     @Override
     public String toString() {
         return "LogRecord{" +
+
                 "d='" + d + '\'' +
                 ", e='" + e + '\'' +
                 ", uid='" + uid + '\'' +
@@ -29,8 +31,17 @@ public class LogRecord implements Serializable{
                 ", si='" + si + '\'' +
                 ", s='" + s + '\'' +
                 ", f='" + f + '\'' +
+                ", p='" + p + '\'' +
                 ", humanTime='" + humanTime + '\'' +
                 '}';
+    }
+
+    public String getP() {
+        return p;
+    }
+
+    public void setP(String p) {
+        this.p = p;
     }
 
     public String getD() {

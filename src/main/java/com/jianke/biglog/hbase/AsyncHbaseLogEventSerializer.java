@@ -60,6 +60,7 @@ public class AsyncHbaseLogEventSerializer  implements HbaseEventSerializer {
         putReq.add(colFam, "si".getBytes(), Bytes.toBytes(cols.getSi()));
         putReq.add(colFam, "s".getBytes(), Bytes.toBytes(cols.getS()));
         putReq.add(colFam, "f".getBytes(), Bytes.toBytes(cols.getF()));
+        putReq.add(colFam, "p".getBytes(), Bytes.toBytes(cols.getP()));
         puts.add(putReq);
         return puts;
     }

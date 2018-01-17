@@ -16,7 +16,8 @@ public class AccessLogParser {
             logRecord.setSi(data[6]);
             logRecord.setS(data[7]);
             logRecord.setF(data[8]);
-            logRecord.setHumanTime(data[9]);
+            logRecord.setP(data[9]);
+            logRecord.setHumanTime(data[10]);
             return logRecord;
         }
         return  null;
