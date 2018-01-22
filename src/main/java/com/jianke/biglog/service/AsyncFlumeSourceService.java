@@ -24,9 +24,11 @@ public class AsyncFlumeSourceService {
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String humanTime = dt.format(now);
 
-        String logRecord = d + DELIMITER + e + DELIMITER + uid + DELIMITER
-                + u + DELIMITER + r + DELIMITER + et + DELIMITER
-                + si + DELIMITER + s + DELIMITER + f + DELIMITER + p + DELIMITER + humanTime;
+        String logRecord = "d=" + d + DELIMITER + "e=" + e + DELIMITER
+                + "uid=" + uid + DELIMITER + "u=" + u + DELIMITER
+                + "r=" + r + DELIMITER + "et=" + et + DELIMITER
+                + "si=" + si + DELIMITER + "s=" + s + DELIMITER
+                + "f=" + f + DELIMITER + "p=" + p + DELIMITER + humanTime;
         logger.info("logRecord: " + logRecord);
         flumeClient.init();
         flumeClient.sendDataToFlume(logRecord);

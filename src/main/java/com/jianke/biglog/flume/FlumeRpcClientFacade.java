@@ -14,10 +14,8 @@ public class FlumeRpcClientFacade {
     private RpcClient client;
     private Properties props;
     private static String host1 = "172.21.57.149:41414";
-    private static String host2 = "172.21.57.149:41414";
-    private static String host3 = "172.21.57.149:41414";
-//    private static String host2 = "172.21.57.148:41414";
-//    private static String host3 = "172.21.57.147:41414";
+    private static String host2 = "172.21.57.148:41414";
+    private static String host3 = "172.21.57.147:41414";
 
     public void init() {
         this.props = new Properties();
