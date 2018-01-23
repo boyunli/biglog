@@ -16,7 +16,7 @@ public class AsyncLogEventController {
     @Autowired
     private AsyncFlumeSourceService asyncFlumeSourceService;
 
-    @RequestMapping(value = "/record/", method = RequestMethod.GET)
+    @RequestMapping(value = "/record", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity listAllLogRecord(@RequestParam(value = "d", required = false) String d,
                                            @RequestParam(value = "e", required = false) String e,
