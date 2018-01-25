@@ -21,11 +21,11 @@ public class AsyncFlumeSourceService {
         FlumeRpcClientFacade flumeClient = new FlumeRpcClientFacade();
         final String DELIMITER = "&&&";
 
-        String logRecord = d + DELIMITER + p + DELIMITER
-                + uid + DELIMITER + u + DELIMITER
-                + r + DELIMITER + et + DELIMITER
-                + si + DELIMITER + s + DELIMITER
-                + f + DELIMITER + e + DELIMITER+ System.currentTimeMillis();
+        String logRecord = "d=" + d + DELIMITER + "p=" + p + DELIMITER
+                + "uid=" + uid + DELIMITER + "u=" + u + DELIMITER
+                + "r=" + r + DELIMITER + "et=" + et + DELIMITER
+                + "si=" + si + DELIMITER + "s=" + s + DELIMITER
+                + "f=" + f + DELIMITER + "e=" + e + DELIMITER + System.currentTimeMillis();
         logger.info("logRecord: " + logRecord);
         flumeClient.init();
         flumeClient.sendDataToFlume(logRecord);
