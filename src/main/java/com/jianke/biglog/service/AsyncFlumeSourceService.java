@@ -6,9 +6,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 @Service
 public class AsyncFlumeSourceService {
     public static final Logger logger = LoggerFactory.getLogger(AsyncFlumeSourceService.class);
@@ -17,7 +14,6 @@ public class AsyncFlumeSourceService {
     public void asyncLog(String d, String e, String uid,
                          String u, String r, String et,
                          String si, String s, String f, String p) {
-        Date now = new Date();
         FlumeRpcClientFacade flumeClient = new FlumeRpcClientFacade();
         final String DELIMITER = "&&&";
 

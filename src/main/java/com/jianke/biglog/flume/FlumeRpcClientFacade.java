@@ -8,7 +8,6 @@ import org.apache.flume.EventDeliveryException;
 import org.apache.flume.api.RpcClient;
 import org.apache.flume.api.RpcClientFactory;
 import org.apache.flume.event.EventBuilder;
-import org.springframework.stereotype.Service;
 
 public class FlumeRpcClientFacade {
     private RpcClient client;
