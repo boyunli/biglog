@@ -11,11 +11,13 @@ public class LogRecord implements Serializable{
     private String uid;
     private String u;
     private String r;
+    private String ua;
     private String et;
     private String si;
     private String s;
     private String f;
     private String p;
+    private String ip;
     private String humanTime;
 
     @Override
@@ -27,11 +29,13 @@ public class LogRecord implements Serializable{
                 ", uid='" + uid + '\'' +
                 ", u='" + u + '\'' +
                 ", r='" + r + '\'' +
+                ", ua='" + ua + '\'' +
                 ", et='" + et + '\'' +
                 ", si='" + si + '\'' +
                 ", s='" + s + '\'' +
                 ", f='" + f + '\'' +
                 ", p='" + p + '\'' +
+                ", ip='" + ip + '\'' +
                 ", humanTime='" + humanTime + '\'' +
                 '}';
     }
@@ -84,6 +88,14 @@ public class LogRecord implements Serializable{
         this.r = r;
     }
 
+    public String getUa() {
+        return ua;
+    }
+
+    public void setUa(String ua) {
+        this.ua = ua;
+    }
+
     public String getEt() {
         return et;
     }
@@ -114,6 +126,14 @@ public class LogRecord implements Serializable{
 
     public void setF(String f) {
         this.f = f;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
     }
 
     public String getHumanTime() {

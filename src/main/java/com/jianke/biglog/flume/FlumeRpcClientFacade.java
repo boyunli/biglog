@@ -26,6 +26,7 @@ public class FlumeRpcClientFacade {
         this.props.put("host-selector", "random");
         this.props.put("backoff", "true");
         this.props.put("maxBackoff", "10000");
+        this.props.put("batch-size", "100");
         this.client = RpcClientFactory.getInstance(this.props);
     }
 
